@@ -1,0 +1,16 @@
+spring:
+   datasource:
+      username: totc
+      password: totc
+      url: jdbc:mysql://localhost:3306/totc
+ 
+   jpa:
+      hibernate:
+         ddl-auto: update
+      show-sql: true
+      defer-datasource-initialization: true
+   sql:
+      init:
+         mode: always
+           
+ 
