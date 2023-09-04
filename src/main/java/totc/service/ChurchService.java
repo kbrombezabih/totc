@@ -63,7 +63,7 @@ public class ChurchService {
 
   private Church findChurchById(Long churchId) {
     
-    return churchDao.findById(churchId).orElseThrow(()-> new NoSuchElementException(
+    return churchDao.findById(churchId).orElseThrow(() -> new NoSuchElementException(
         "Church with ID = " + churchId + " was not found."));
     }
   
@@ -128,12 +128,11 @@ public class ChurchService {
     
     for(Church church : churches) {
       ChurchData churchData = new ChurchData(church);
-      
-      churchData.getMembers().clear();
-      churchData.getEmployees().clear();
       result.add(churchData);
     }
-    return result;
+      //churchData.getMembers().clear();
+      //churchData.getEmployees().clear();
+     return result;
   }
   
   @Transactional(readOnly = true)
@@ -194,6 +193,7 @@ public class ChurchService {
           " does not match the church id of " + churchId);
     }
   }
+  
   
   public void deleteChurchById(Long churchId){
     Church church = findChurchById(churchId);
